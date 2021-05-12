@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,21 +11,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pizzas', function () {
-    // get data from db
-    $pizzas = [
-        ['type' => 'hawaiian', 'base' => 'cheesy crust'],
-        ['type' => 'volcano', 'base' => 'garlic crust'],
-        ['type' => 'veg supreme', 'base' => 'thin & crispy']
-    ];
-
-    return view('pizzas', [
-        'pizzas' => $pizzas,
-        'name' => request('name'),
-        'age' => request('age')
-    ]);
-});
+// pizza routes
+Route::get('/pizzas', 'App\Http\Controllers\PizzaController@index');
+Route::get('/pizzas/{id}', 'App\Http\Controllers\PizzaController@show');
