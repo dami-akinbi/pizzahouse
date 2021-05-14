@@ -4,6 +4,7 @@
 <div class="wrapper create-pizza">
     <h1>Create a New Pizza</h1>
     <form action="/pizzas" method="POST">
+        @csrf
         <label for="name">Your name:</label>
         <input type="text" id="name" name="name">
 
@@ -23,7 +24,7 @@
             <option value="thick">Thick</option>
         </select>
 
-        <input type="button" value="Order Pizza">
+        <input type="submit" value="Order Pizza">
     </form>
 </div>
 @endsection
